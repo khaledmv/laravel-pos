@@ -11,13 +11,14 @@ require('./bootstrap');
 window.Vue = require('vue');
 import { createApp } from 'vue'
 import * as VueRouter from 'vue-router'
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory,createWebHistory  } from 'vue-router'
 
 import { routes } from './routes'
 
 const router = VueRouter.createRouter({
   // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
-  history: VueRouter.createWebHashHistory(),
+   history: VueRouter.createWebHistory(),
+  // mode:history,
   routes, // short for `routes: routes`
 })
 

@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Login Component</div>
+                    <div class="card-header">Register Component</div>
 
                     <div class="card-body">
                         Hello I am component,, and finaly I'm component
@@ -15,9 +15,9 @@
 </template>
 
 <script>
-    // export default {
-    //     mounted() {
-    //         console.log('Component mounted.')
-    //     }
-    // }
+    export default {
+        mounted() {
+            console.log('Component mounted.')
+        }
+    }
 </script>
