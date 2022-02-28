@@ -4,6 +4,9 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+
+// import vue, vue-roter, createRouter and createWebHasHistory
+
 require('./bootstrap');
 window.Vue = require('vue');
 import { createApp } from 'vue'
