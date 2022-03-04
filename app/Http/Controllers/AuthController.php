@@ -55,10 +55,12 @@ class AuthController extends Controller
                     $validator->validated(),
                     ['password' => bcrypt($request->password)]
                 ));
-        return response()->json([
-            'message' => 'User successfully registered',
-            'user' => $user
-        ], 201);
+        // return response()->json([
+        //     'message' => 'User successfully registered',
+        //     'user' => $user
+        // ], 201);
+
+        return $this->login($request);
     }
 
     /**

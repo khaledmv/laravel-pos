@@ -24,9 +24,11 @@
                 <div class="row">
                   <div class="form-group col-md-12 mb-4">
                     <input type="email" class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="Username" v-model="form.email">
+                    <small style="color:red; font-size:8px;" v-if="errors.email">{{errors.email[0]}}</small>
                   </div>
                   <div class="form-group col-md-12 ">
                     <input type="password" class="form-control input-lg" id="password" placeholder="Password" v-model="form.password" >
+                    <small style="color:red; font-size:8px;" v-if="errors.password">{{errors.password[0]}}</small>
                   </div>
                   <div class="col-md-12">
                     <div class="d-flex my-2 justify-content-between">
@@ -55,13 +57,20 @@
 
 <script>
     export default {
+      created(){
+        if(User.loggedIn()){
+          this.$router.push({ name: 'home'})
+        }
+      },
        data(){
          return{
 
            form:{
              email:null,
              password:null
-           }
+           },
+
+           errors:{}
 
          }
        },
@@ -69,8 +78,22 @@
     methods:{
       login(){
         axios.post('/api/auth/login', this.form)
-        .then(res => User.responseAfterLogin(res))
-        .catch( error => console.log(error.response.data.error))
+        .then(res => {
+          User.responseAfterLogin(res)
+          Toast.fire({
+              icon: 'success',
+              title: 'Signed in successfully'
+            })
+          this.$router.push({ name: 'home'})
+          })
+          
+        .catch( error => this.errors = error.response.data.errors)
+        .catch(
+          Toast.fire({
+              icon: 'warning',
+              title: 'Email or password invalid'
+            })
+        )
       }
     }
 

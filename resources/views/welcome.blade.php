@@ -751,7 +751,7 @@
                       </li>
 
                       <li class="dropdown-footer">
-                        <a href="signin.html"> <i class="mdi mdi-logout"></i> Log Out </a>
+                        <router-link to="/logout" class="mdi mdi-logout">Logout</router-link>
                       </li>
                     </ul>
                   </li>
