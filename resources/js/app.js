@@ -15,6 +15,13 @@ import { createRouter, createWebHashHistory,createWebHistory  } from 'vue-router
 
 import { routes } from './routes'
 
+// import helper user class
+import User from './helpers/User';
+window.User = User
+
+
+
+
 const router = VueRouter.createRouter({
   // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
    history: VueRouter.createWebHistory(),
